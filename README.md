@@ -4,7 +4,7 @@ In this repo, there is a  dockerized a generic react app, demonstrating a
 production workflow, utilizing CRA(create react app), Docker, docker-compose,
 Travis CI, AWS Beanstalk and S3 Buckets.
 
-[[https://github.com/pfanourgakis/docker-react/FlowChart.png]]
+[[https://github.com/PantelisFan/docker-react/blob/feature/FlowChart.png]]
 
 ## Front-end Production workflow example
 #### For the specific example, we will be using two Dockerfiles, one for dev and one for production
