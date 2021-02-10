@@ -1,0 +1,24 @@
+version: "3"
+services:
+  react-app:
+    build:
+      # the context option, specifies where we want the files and folders of the image to be pulled from
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      # The below line, maps the current folder to the working directory of the container
+      # where our files exist
+      - .:/app
+    # We are setting up a second service to run the tests or alternatively,
+    # we could grab the id of the running container and run "exec -it <id> npm run test" and make the container aware of the live updates
+  tests:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    volumes:
+    - /app/node_modules
+    - .:/app
+    command: ["npm", "run", "test"]
