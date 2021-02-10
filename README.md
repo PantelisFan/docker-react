@@ -30,19 +30,22 @@ with passing the argument `-v /app/node_modules`**
 
 Now, we can hot-reload using the changes, while the container runs. 
 
-## How to avoid all this big commands nonsense
+### How to avoid all this big commands nonsense
 #### docker-compose!
 
 To simplify the `docker run` command, we can simply create a docker-compose file, 
 specifying all the configuration. in the current repository, there is a `yaml` file
 with all the required fields and settings to replace the long-ass command.
 In this case, a simple `docker-compose up`, comes to the rescue.
+---
+---
 
-# Production container
+
+## Production container
 #### Multi-step docker builds
 
 Since, on production, we are dropping the dev server required to run our app
-and all of the dependencies, but we still need a service which will serve
+and all the dependencies, but we still need a service which will serve
 and communicate from our production web container to the end-website.
 
 For this, we will utilize **_nginx_**: https://hub.docker.com/_/nginx
@@ -55,3 +58,13 @@ Our new container build flow will look like this:
 | COPY package.json| <> |copy the built files |
 | Install deps | <> |start nginx |
 | Run build command |  |  |
+
+---
+---
+
+### Travis workflow
+
+1. Instruct travis to run a copy of the docker image
+2. Build the image using Dockerfile.env (this is the development Dockerfile)
+3. Run tests
+4. Deploy the code to AWS
