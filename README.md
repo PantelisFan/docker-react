@@ -6,6 +6,7 @@ Travis CI, AWS Beanstalk and S3 Buckets.
 
 ![Flow Chart](https://github.com/PantelisFan/docker-react/blob/master/FlowChart.png "Flow")
 
+
 ## Front-end Production workflow example
 #### For the specific example, we will be using two Dockerfiles, one for dev and one for production
 
